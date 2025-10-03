@@ -1,0 +1,2 @@
+rust-objdump -S target/riscv64gc-unknown-none-elf/debug/os
+qemu-riscv64 target/riscv64gc-unknown-none-elf/debug/os
