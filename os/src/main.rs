@@ -12,7 +12,8 @@ pub fn rust_main() -> ! {
     unsafe {
         clear_bss();
     }
-    println!("Hello, world!");
+    println!("hello world");
+    error!("This should not be printed!");
     panic!("Shutdown machine!");
 }
 unsafe fn clear_bss() {
