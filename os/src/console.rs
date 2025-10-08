@@ -1,6 +1,9 @@
+//! SBI console driver, for text output
 use crate::sbi::console_putchar;
 use core::fmt::{self, Write};
+
 struct Stdout;
+
 impl Write for Stdout {
     fn write_str(&mut self, s: &str) -> fmt::Result {
         for c in s.chars() {
@@ -9,24 +12,23 @@ impl Write for Stdout {
         Ok(())
     }
 }
+
 pub fn print(args: fmt::Arguments) {
     Stdout.write_fmt(args).unwrap();
 }
+
+/// Print! to the host console using the format string and arguments.
 #[macro_export]
 macro_rules! print {
     ($fmt: literal $(, $($arg: tt)+)?) => {
-        $crate::console::print(format_args!($fmt $(, $($arg)+)?));
+        $crate::console::print(format_args!($fmt $(, $($arg)+)?))
     }
 }
+
+/// Println! to the host console using the format string and arguments.
 #[macro_export]
 macro_rules! println {
     ($fmt: literal $(, $($arg: tt)+)?) => {
-        $crate::console::print(format_args!(concat!($fmt, "\n") $(, $($arg)+)?));
-    }
-}
-#[macro_export]
-macro_rules! error {
-    ($fmt: literal $(, $($arg: tt)+)?) => {
-        $crate::console::print(format_args!(concat!("\x1b[31m", $fmt, "\x1b[0m\n") $(, $($arg)+)?));
+        $crate::console::print(format_args!(concat!($fmt, "\n") $(, $($arg)+)?))
     }
 }

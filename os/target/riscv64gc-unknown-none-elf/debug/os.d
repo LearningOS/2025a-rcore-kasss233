@@ -1,1 +1,0 @@
-/home/kasss/2025a-rcore-kasss233/os/target/riscv64gc-unknown-none-elf/debug/os: /home/kasss/2025a-rcore-kasss233/os/src/console.rs /home/kasss/2025a-rcore-kasss233/os/src/entry.asm /home/kasss/2025a-rcore-kasss233/os/src/lang_items.rs /home/kasss/2025a-rcore-kasss233/os/src/main.rs /home/kasss/2025a-rcore-kasss233/os/src/sbi.rs
