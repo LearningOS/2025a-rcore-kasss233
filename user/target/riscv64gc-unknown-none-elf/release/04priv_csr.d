@@ -1,0 +1,1 @@
+/home/kasss/2025a-rcore-kasss233/user/target/riscv64gc-unknown-none-elf/release/04priv_csr: /home/kasss/2025a-rcore-kasss233/user/src/bin/04priv_csr.rs /home/kasss/2025a-rcore-kasss233/user/src/console.rs /home/kasss/2025a-rcore-kasss233/user/src/lang_items.rs /home/kasss/2025a-rcore-kasss233/user/src/lib.rs /home/kasss/2025a-rcore-kasss233/user/src/syscall.rs
