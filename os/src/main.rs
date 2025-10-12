@@ -4,9 +4,15 @@ mod batch;
 mod console;
 mod lang_items;
 mod sbi;
+mod sync;
+pub mod syscall;
+pub mod trap;
 use core::arch::global_asm;
-global_asm!(include_str!("entry.asm"));
 
+use crate::batch::run_next_app;
+
+global_asm!(include_str!("entry.asm"));
+global_asm!(include_str!("link_app.S"));
 fn clear_bss() {
     unsafe extern "C" {
         unsafe static sbss: u8;
@@ -23,5 +29,6 @@ fn clear_bss() {
 pub fn rust_main() -> ! {
     clear_bss();
     println!("Hello, world!");
-    panic!("Shutdown machine!");
+    trap::init();
+    run_next_app();
 }
